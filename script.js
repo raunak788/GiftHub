@@ -1,68 +1,32 @@
-body {
-  font-family: Arial;
-  background: #f5f5f5;
-  margin: 0;
+let cart = [];
+
+function addToCart(name, price) {
+  cart.push({name, price});
+  updateCart();
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px;
-  background: white;
+function updateCart() {
+  document.getElementById("count").innerText = cart.length;
+
+  let html = "";
+  cart.forEach((item, i) => {
+    html += `<p>${item.name} - ₹${item.price} <button onclick="removeItem(${i})">X</button></p>`;
+  });
+
+  document.getElementById("cartItems").innerHTML = html;
+
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-.logo {
-  font-size: 20px;
-  color: #e91e63;
-  font-weight: bold;
+function removeItem(i) {
+  cart.splice(i,1);
+  updateCart();
 }
 
-.cart-btn {
-  background: #e91e63;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 20px;
+function openCart() {
+  document.getElementById("cart").classList.add("active");
 }
 
-.products {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 15px;
-  padding: 20px;
+function closeCart() {
+  document.getElementById("cart").classList.remove("active");
 }
-
-.product {
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.product img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-button {
-  background: #e91e63;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin-top: 5px;
-}
-
-/* CART */
-.cart {
-  position: fixed;
-  right: -300px;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  background: white;
-  padding: 20px;
-  transition: 0.3s;
-}
-
-.cart.active {
-  right: 0;
-  }
