@@ -1,45 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>GiftHub</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GiftHub</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#f5f5f5;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px;
+  background:white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  position:sticky;
+  top:0;
+}
+
+.logo{
+  font-size:22px;
+  color:#e91e63;
+  font-weight:bold;
+}
+
+button{
+  background:#e91e63;
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:white;
+  text-align:center;
+  padding:40px 20px;
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* CATEGORIES */
+.section{
+  padding:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.card{
+  background:white;
+  padding:15px;
+  text-align:center;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  padding:20px;
+}
+
+.product{
+  background:white;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
+}
+
+.product img{
+  width:100%;
+  border-radius:10px;
+}
+
+.product:hover{
+  transform:scale(1.03);
+  transition:0.3s;
+}
+
+/* CART */
+.cart{
+  position:fixed;
+  right:-300px;
+  top:0;
+  width:250px;
+  height:100%;
+  background:white;
+  padding:15px;
+  transition:0.3s;
+  box-shadow:-2px 0 10px rgba(0,0,0,0.2);
+}
+
+.cart.active{
+  right:0;
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
   <div class="logo">GiftHub</div>
-  <button onclick="openCart()" class="cart-btn">Cart 🛒 (<span id="count">0</span>)</button>
+  <button onclick="openCart()">Cart 🛒 (<span id="count">0</span>)</button>
 </header>
 
-<h2 class="title">Popular Gifts</h2>
+<div class="hero">
+  Send Love Anywhere ❤️<br>
+  Flowers • Cakes • Gifts
+</div>
 
-<div class="products">
-
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1526045478516-99145907023c">
-    <h3>Rose Bouquet</h3>
-    <p>₹699</p>
-    <button onclick="addToCart('Rose Bouquet',699)">Add</button>
-    <a href="product.html">View</a>
+<div class="section">
+  <h2>Categories</h2>
+  <div class="grid">
+    <div class="card">🌸 Flowers</div>
+    <div class="card">🎂 Cakes</div>
+    <div class="card">🎁 Gifts</div>
+    <div class="card">🍫 Chocolates</div>
   </div>
+</div>
 
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec">
-    <h3>Chocolate Cake</h3>
-    <p>₹499</p>
-    <button onclick="addToCart('Cake',499)">Add</button>
-    <a href="product.html">View</a>
+<div class="section">
+  <h2>Popular Products</h2>
+
+  <div class="products">
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1526045478516-99145907023c">
+      <h3>Rose Bouquet</h3>
+      <p>₹699</p>
+      <button onclick="add('Rose Bouquet',699)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec">
+      <h3>Chocolate Cake</h3>
+      <p>₹499</p>
+      <button onclick="add('Cake',499)">Add to Cart</button>
+    </div>
+
   </div>
-
 </div>
 
 <!-- CART -->
-<div id="cart" class="cart">
+<div class="cart" id="cart">
   <h3>Your Cart</h3>
-  <div id="cartItems"></div>
+  <div id="items"></div>
   <button onclick="closeCart()">Close</button>
 </div>
 
-<script src="script.js"></script>
+<script>
+let cart=[];
+
+function add(name,price){
+  cart.push({name,price});
+  update();
+}
+
+function update(){
+  document.getElementById("count").innerText=cart.length;
+
+  let html="";
+  cart.forEach((item,i)=>{
+    html+=`<p>${item.name} - ₹${item.price}</p>`;
+  });
+
+  document.getElementById("items").innerHTML=html;
+}
+
+function openCart(){
+  document.getElementById("cart").classList.add("active");
+}
+
+function closeCart(){
+  document.getElementById("cart").classList.remove("active");
+}
+</script>
+
 </body>
-</html>
+  </html>
