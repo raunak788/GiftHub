@@ -1,20 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>GiftHub</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GiftHub</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#f7f7f7;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#e91e63;
+}
+
+/* SEARCH */
+input{
+padding:8px;
+width:40%;
+border-radius:20px;
+border:1px solid #ddd;
+}
+
+/* HERO */
+.hero{
+height:220px;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+}
+
+/* CATEGORY */
+.section{
+padding:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.card{
+background:white;
+padding:15px;
+text-align:center;
+border-radius:12px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* PRODUCTS */
+.products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+padding:20px;
+}
+
+.product{
+background:white;
+padding:10px;
+border-radius:12px;
+text-align:center;
+transition:0.3s;
+}
+
+.product:hover{
+transform:scale(1.05);
+}
+
+.product img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:10px;
+}
+
+button{
+background:#e91e63;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:20px;
+cursor:pointer;
+margin-top:5px;
+}
+
+/* CART */
+.cart{
+position:fixed;
+right:-320px;
+top:0;
+width:260px;
+height:100%;
+background:white;
+padding:15px;
+transition:0.3s;
+box-shadow:-2px 0 10px rgba(0,0,0,0.2);
+}
+
+.cart.active{
+right:0;
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
-  <div class="logo">GiftHub</div>
-  <div class="cart">🛒 Cart (<span id="count">0</span>)</div>
+<div class="logo">GiftHub</div>
+<input placeholder="Search gifts...">
+<div onclick="openCart()">🛒 Cart (<span id="count">0</span>)</div>
 </header>
 
-<h2 style="padding:10px">Products</h2>
+<div class="hero">
+Send Love Anywhere ❤️<br>
+Flowers • Cakes • Gifts
+</div>
 
-<div id="products"></div>
+<div class="section">
+<h2>Categories</h2>
+<div class="grid">
+<div class="card">🌸 Flowers</div>
+<div class="card">🎂 Cakes</div>
+<div class="card">🎁 Gifts</div>
+<div class="card">🍫 Chocolates</div>
+</div>
+</div>
 
-<script src="script.js"></script>
+<h2 style="padding:0 20px">Popular Products</h2>
+
+<div class="products">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1526045478516-99145907023c">
+<h3>Rose Bouquet</h3>
+<p>₹699</p>
+<button onclick="add('Rose Bouquet',699)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec">
+<h3>Chocolate Cake</h3>
+<p>₹499</p>
+<button onclick="add('Cake',499)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2">
+<h3>Gift Box</h3>
+<p>₹899</p>
+<button onclick="add('Gift Box',899)">Add to Cart</button>
+</div>
+
+</div>
+
+<!-- CART -->
+<div class="cart" id="cart">
+<h3>Your Cart</h3>
+<div id="items"></div>
+<button onclick="closeCart()">Close</button>
+</div>
+
+<script>
+let cart = [];
+
+function add(name,price){
+cart.push({name,price});
+document.getElementById("count").innerText = cart.length;
+
+let html="";
+cart.forEach(i=>{
+html += `<p>${i.name} - ₹${i.price}</p>`;
+});
+
+document.getElementById("items").innerHTML = html;
+}
+
+function openCart(){
+document.getElementById("cart").classList.add("active");
+}
+
+function closeCart(){
+document.getElementById("cart").classList.remove("active");
+}
+</script>
+
 </body>
-</html>
+  </html>
