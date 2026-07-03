@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<h3 id="total"></h3>
+
+<button onclick="placeOrder()">Place Order</button>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let total = 0;
+let html = "";
+
+cart.forEach(item=>{
+  html += `<p>${item.name} - ₹${item.price}</p>`;
+  total += item.price;
+});
+
+document.getElementById("cartItems").innerHTML = html;
+document.getElementById("total").innerText = "Total: ₹" + total;
+
+function placeOrder(){
+  alert("Order Placed Successfully 🎉");
+  localStorage.removeItem("cart");
+  window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>
