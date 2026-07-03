@@ -3,140 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
+  <title>GiftHub</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Welcome ! to My Website</h1>
-    <p>Simple | Fast | Free Website</p>
-  </header>
+<header>
+  <div class="logo">GiftHub</div>
+
+  <div class="search">
+    <input type="text" placeholder="Search flowers, cakes, gifts...">
+  </div>
 
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+    <a href="#">Home</a>
+    <a href="#">Flowers</a>
+    <a href="#">Cakes</a>
+    <a href="#">Gifts</a>
   </nav>
+</header>
 
-  <section id="home" class="hero">
-    <h2>Hello 👋</h2>
-    <p>This is my first website hosted for free using GitHub Pages.</p>
-    <button onclick="alert('Thanks for visiting!')">Click Me</button>
-  </section>
+<!-- HERO SLIDER -->
+<section class="slider">
+  <div class="slide active">🎁 Send Love with Gifts</div>
+  <div class="slide">🌸 Fresh Flowers Delivered</div>
+  <div class="slide">🎂 Cakes for Every Celebration</div>
+</section>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am learning web development and this is my first live project.</p>
-  </section>
-
-  <section id="services">
-    <h2>Services</h2>
-    <div class="box-container">
-      <div class="box">Web Design</div>
-      <div class="box">Development</div>
-      <div class="box">SEO Basics</div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: example@gmail.com</p>
-    <p>Phone: +91-XXXXXXXXXX</p>
-  </section>
-
-  <footer>
-    <p>© 2026 My Website | All Rights Reserved</p>
-  </footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>GiftHub</title>
-  <style>
-    body { font-family: Arial; margin:0; }
-
-    .navbar {
-      display:flex;
-      justify-content:space-between;
-      padding:15px;
-      background:#ff4d6d;
-      color:white;
-    }
-
-    .hero {
-      text-align:center;
-      padding:80px;
-      background:#ffe6ea;
-    }
-
-    .hero button {
-      padding:10px 20px;
-      background:#ff4d6d;
-      color:white;
-      border:none;
-      cursor:pointer;
-    }
-
-    .section {
-      padding:40px;
-      text-align:center;
-    }
-
-    .cards {
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .card {
-      width:150px;
-      padding:20px;
-      background:white;
-      border:1px solid #ddd;
-      border-radius:10px;
-    }
-
-    footer {
-      background:#222;
-      color:white;
-      text-align:center;
-      padding:20px;
-      margin-top:30px;
-    }
-  </style>
-</head>
-
-<body>
-
-<div class="navbar">
-  <div><b>GiftHub</b></div>
-  <div>Home | Flowers | Cakes | Gifts</div>
-</div>
-
-<div class="hero">
-  <h1>Send Love Anywhere ❤️</h1>
-  <p>Flowers • Cakes • Gifts</p>
-  <button>Shop Now</button>
-</div>
-
-<div class="section">
-  <h2>Categories</h2>
-  <div class="cards">
-    <div class="card">💐 Flowers</div>
+<!-- CATEGORIES -->
+<section class="categories">
+  <h2>Shop by Category</h2>
+  <div class="grid">
+    <div class="card">🌸 Flowers</div>
     <div class="card">🎂 Cakes</div>
-    <div class="card">🍫 Chocolates</div>
     <div class="card">🎁 Gifts</div>
+    <div class="card">🍫 Chocolates</div>
   </div>
-</div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+  <h2>Popular Products</h2>
+
+  <div class="product-grid">
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1526045478516-99145907023c">
+      <h3>Rose Bouquet</h3>
+      <p>₹699</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec">
+      <h3>Chocolate Cake</h3>
+      <p>₹499</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2">
+      <h3>Gift Box</h3>
+      <p>₹899</p>
+      <button>Add to Cart</button>
+    </div>
+
+  </div>
+</section>
 
 <footer>
-  © 2026 GiftHub | Made with ❤️
+  <p>© 2026 GiftHub | Made with ❤️</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
