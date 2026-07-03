@@ -1,217 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+ <!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GiftHub</title>
-
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#f5f5f5;
-}
-
-/* HEADER */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px;
-  background:white;
-  position:sticky;
-  top:0;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-
-.logo{
-  font-size:22px;
-  font-weight:bold;
-  color:#e91e63;
-}
-
-button{
-  background:#e91e63;
-  color:white;
-  border:none;
-  padding:8px 12px;
-  border-radius:20px;
-  cursor:pointer;
-}
-
-/* SLIDER */
-.slider{
-  height:200px;
-  background:#ff7eb3;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:22px;
-  font-weight:bold;
-  transition:0.5s;
-}
-
-/* CATEGORY */
-.section{
-  padding:20px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-}
-
-.card{
-  background:white;
-  padding:15px;
-  border-radius:10px;
-  text-align:center;
-}
-
-/* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-
-.product{
-  background:white;
-  padding:10px;
-  border-radius:10px;
-}
-
-.product img{
-  width:100%;
-  border-radius:10px;
-}
-
-.product button{
-  width:100%;
-  margin-top:5px;
-}
-
-/* CART */
-.cart{
-  position:fixed;
-  right:-320px;
-  top:0;
-  width:270px;
-  height:100%;
-  background:white;
-  padding:15px;
-  transition:0.3s;
-  box-shadow:-2px 0 10px rgba(0,0,0,0.2);
-}
-
-.cart.active{
-  right:0;
-}
-
-.total{
-  font-weight:bold;
-  margin-top:10px;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
   <div class="logo">GiftHub</div>
-  <button onclick="openCart()">Cart 🛒 (<span id="count">0</span>)</button>
+  <a href="checkout.html">🛒 Cart</a>
 </header>
 
-<!-- SLIDER -->
-<div class="slider" id="slider">Send Love ❤️ Gifts Anywhere</div>
+<h2>Popular Gifts</h2>
 
-<!-- CATEGORY -->
-<div class="section">
-<h2>Categories</h2>
 <div class="grid">
-<div class="card">🌸 Flowers</div>
-<div class="card">🎂 Cakes</div>
-<div class="card">🎁 Gifts</div>
-<div class="card">🍫 Chocolates</div>
-</div>
-</div>
 
-<!-- PRODUCTS -->
-<div class="section">
-<h2>Popular Products</h2>
-
-<div class="products">
-
-<div class="product">
+<div class="card">
 <img src="https://images.unsplash.com/photo-1526045478516-99145907023c">
 <h3>Rose Bouquet</h3>
 <p>₹699</p>
 <button onclick="add('Rose Bouquet',699)">Add</button>
+<a href="product.html">View</a>
 </div>
 
-<div class="product">
+<div class="card">
 <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec">
 <h3>Cake</h3>
 <p>₹499</p>
 <button onclick="add('Cake',499)">Add</button>
+<a href="product.html">View</a>
 </div>
 
 </div>
-</div>
 
-<!-- CART -->
-<div class="cart" id="cart">
-<h3>Your Cart</h3>
-<div id="items"></div>
-<div class="total" id="total">Total: ₹0</div>
-<button onclick="closeCart()">Close</button>
-</div>
-
-<script>
-let cart=[];
-let total=0;
-
-function add(name,price){
-  cart.push({name,price});
-  total += price;
-  update();
-}
-
-function update(){
-  document.getElementById("count").innerText=cart.length;
-
-  let html="";
-  cart.forEach((item)=>{
-    html+=`<p>${item.name} - ₹${item.price}</p>`;
-  });
-
-  document.getElementById("items").innerHTML=html;
-  document.getElementById("total").innerText="Total: ₹"+total;
-}
-
-/* CART */
-function openCart(){
-  document.getElementById("cart").classList.add("active");
-}
-function closeCart(){
-  document.getElementById("cart").classList.remove("active");
-}
-
-/* SLIDER */
-let slides=[
-"Send Love ❤️ Gifts Anywhere",
-"Fresh Flowers 🌸 Delivered Fast",
-"Surprise Cakes 🎂 for Every Moment"
-];
-
-let i=0;
-setInterval(()=>{
-  i=(i+1)%slides.length;
-  document.getElementById("slider").innerText=slides[i];
-},2000);
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
