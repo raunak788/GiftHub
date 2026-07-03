@@ -15,14 +15,16 @@ function add(name,price){
 
 function updateCart(){
   let count = document.getElementById("count");
-  if(count){
-    count.innerText = cart.length;
-  }
+  if(count) count.innerText = cart.length;
 }
 
 function render(){
   let box = document.getElementById("products");
-  if(!box) return;
+
+  if(!box){
+    console.log("Products div missing");
+    return;
+  }
 
   let html = "";
 
@@ -37,7 +39,6 @@ function render(){
   });
 
   box.innerHTML = html;
-
   updateCart();
 }
 
