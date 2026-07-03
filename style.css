@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  text-align: center;
+}
+
+/* Header */
+header {
+  background: #111;
+  color: white;
+  padding: 25px;
+}
+
+/* Navigation */
+nav {
+  background: #333;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: yellow;
+}
+
+/* Hero */
+.hero {
+  padding: 50px;
+  background: white;
+}
+
+button {
+  padding: 10px 20px;
+  background: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: darkblue;
+}
+
+/* Boxes */
+.box-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.box {
+  background: white;
+  padding: 20px;
+  width: 150px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+/* Sections */
+section {
+  padding: 40px;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
+  }
