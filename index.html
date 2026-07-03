@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GiftHub</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -10,70 +8,37 @@
 
 <header>
   <div class="logo">GiftHub</div>
-
-  <div class="search">
-    <input type="text" placeholder="Search flowers, cakes, gifts...">
-  </div>
-
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Flowers</a>
-    <a href="#">Cakes</a>
-    <a href="#">Gifts</a>
-  </nav>
+  <button onclick="openCart()" class="cart-btn">Cart 🛒 (<span id="count">0</span>)</button>
 </header>
 
-<!-- HERO SLIDER -->
-<section class="slider">
-  <div class="slide active">🎁 Send Love with Gifts</div>
-  <div class="slide">🌸 Fresh Flowers Delivered</div>
-  <div class="slide">🎂 Cakes for Every Celebration</div>
-</section>
+<h2 class="title">Popular Gifts</h2>
 
-<!-- CATEGORIES -->
-<section class="categories">
-  <h2>Shop by Category</h2>
-  <div class="grid">
-    <div class="card">🌸 Flowers</div>
-    <div class="card">🎂 Cakes</div>
-    <div class="card">🎁 Gifts</div>
-    <div class="card">🍫 Chocolates</div>
+<div class="products">
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1526045478516-99145907023c">
+    <h3>Rose Bouquet</h3>
+    <p>₹699</p>
+    <button onclick="addToCart('Rose Bouquet',699)">Add</button>
+    <a href="product.html">View</a>
   </div>
-</section>
 
-<!-- PRODUCTS -->
-<section class="products">
-  <h2>Popular Products</h2>
-
-  <div class="product-grid">
-
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1526045478516-99145907023c">
-      <h3>Rose Bouquet</h3>
-      <p>₹699</p>
-      <button>Add to Cart</button>
-    </div>
-
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec">
-      <h3>Chocolate Cake</h3>
-      <p>₹499</p>
-      <button>Add to Cart</button>
-    </div>
-
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2">
-      <h3>Gift Box</h3>
-      <p>₹899</p>
-      <button>Add to Cart</button>
-    </div>
-
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec">
+    <h3>Chocolate Cake</h3>
+    <p>₹499</p>
+    <button onclick="addToCart('Cake',499)">Add</button>
+    <a href="product.html">View</a>
   </div>
-</section>
 
-<footer>
-  <p>© 2026 GiftHub | Made with ❤️</p>
-</footer>
+</div>
+
+<!-- CART -->
+<div id="cart" class="cart">
+  <h3>Your Cart</h3>
+  <div id="cartItems"></div>
+  <button onclick="closeCart()">Close</button>
+</div>
 
 <script src="script.js"></script>
 </body>
