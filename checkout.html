@@ -1,37 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Checkout</title>
-<link rel="stylesheet" href="style.css">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Your Cart</h2>
+<h2 style="text-align:center;">💳 Checkout</h2>
 
-<div id="cart"></div>
+<form style="text-align:center;">
+  <input placeholder="Name"><br><br>
+  <input placeholder="Address"><br><br>
+  <input placeholder="Phone"><br><br>
 
-<h3 id="total"></h3>
-
-<button onclick="placeOrder()">Place Order</button>
+  <button type="button" onclick="placeOrder()">Place Order</button>
+</form>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-let total = 0;
-let html = "";
-
-cart.forEach(i=>{
-html += `<p>${i.name} - ₹${i.price}</p>`;
-total += i.price;
-});
-
-document.getElementById("cart").innerHTML = html;
-document.getElementById("total").innerText = "Total: ₹" + total;
-
-function placeOrder(){
-alert("Order Placed 🎉");
-localStorage.removeItem("cart");
-window.location.href="index.html";
+function placeOrder() {
+  localStorage.removeItem("cart");
+  alert("Order Placed Successfully 🎉");
+  window.location.href = "index.html";
 }
 </script>
 
