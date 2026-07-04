@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Payment</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!function pay(){
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
-<h2 style="text-align:center;">💳 Payment</h2>
+  let order = {
+    id: Date.now(),
+    items: cart,
+    total: cart.reduce((a,b)=>a+b.price,0),
+    date: new Date().toLocaleString()
+  };
 
-<h3 style="text-align:center;">Total: ₹<span id="amt"></span></h3>
+  let orders = JSON.parse(localStorage.getItem("orders") || "[]");
+  orders.push(order);
+  localStorage.setItem("orders", JSON.stringify(orders));
 
-<button onclick="pay()">Pay Now</button>
-
-<script>
-document.getElementById("amt").innerText =
-  JSON.parse(localStorage.getItem("cart") || "[]")
-  .reduce((a,b)=>a+b.price,0);
-
-function pay(){
-  alert("Payment Successful 🎉 Order Placed!");
   localStorage.removeItem("cart");
+
+  alert("Payment Successful 🎉 Order Saved!");
   window.location.href = "track.html";
 }
-</script>
-
-</body>
-</html>
