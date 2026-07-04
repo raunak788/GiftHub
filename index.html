@@ -201,35 +201,6 @@ margin-top:20px;
 <div class="products" id="products"></div>
 
 <footer>
-© 2026 GiftHub | FNP Style UI
+© 2026 GiftHub |
 </footer>
 
-<script>
-let slides = document.querySelectorAll(".slide");
-let i = 0;
-
-setInterval(() => {
-    slides[i].classList.remove("active");
-    i = (i + 1) % slides.length;
-    slides[i].classList.add("active");
-}, 2500);
-
-// Load Products from Admin Panel
-const products = JSON.parse(localStorage.getItem("products")) || [];
-
-const productContainer = document.getElementById("products");
-
-products.forEach(product => {
-
-    productContainer.innerHTML += `
-        <div class="product">
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>⭐⭐⭐⭐⭐</p>
-            <p>₹${product.price}</p>
-            <button>Add to Cart</button>
-        </div>
-    `;
-
-});
-</
