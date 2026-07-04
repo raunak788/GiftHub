@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2 style="text-align:center;">💳 Payment</h2>
+
+<h3 style="text-align:center;">Total: ₹<span id="amt"></span></h3>
+
+<button onclick="pay()">Pay Now</button>
+
+<script>
+document.getElementById("amt").innerText =
+  JSON.parse(localStorage.getItem("cart") || "[]")
+  .reduce((a,b)=>a+b.price,0);
+
+function pay(){
+  alert("Payment Successful 🎉 Order Placed!");
+  localStorage.removeItem("cart");
+  window.location.href = "track.html";
+}
+</script>
+
+</body>
+</html>
