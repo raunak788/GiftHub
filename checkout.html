@@ -1,28 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Checkout</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<h2 style="text-align:center;">💳 Checkout</h2>
-
-<form style="text-align:center;">
-  <input placeholder="Name"><br><br>
-  <input placeholder="Address"><br><br>
-  <input placeholder="Phone"><br><br>
-
-  <button type="button" onclick="placeOrder()">Place Order</button>
-</form>
-
-<script>
-function placeOrder() {
-  localStorage.removeItem("cart");
-  alert("Order Placed Successfully 🎉");
-  window.location.href = "index.html";
-}
-</script>
-
-</body>
-</html>
+<a href="payment.html">
+  <button type="button">Proceed to Payment</button>
+</a>
