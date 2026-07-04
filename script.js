@@ -61,3 +61,22 @@ document.getElementById("search").addEventListener("input", function(e){
 
 displayProducts();
 updateCart();
+function recommend() {
+  let list = document.getElementById("product-list");
+
+  let top = products.slice(0,2);
+
+  top.forEach(p => {
+    list.innerHTML += `
+      <div class="card" style="border:2px solid gold;">
+        <h4>⭐ Recommended</h4>
+        <img src="${p.img}">
+        <h3>${p.name}</h3>
+        <p>₹${p.price}</p>
+        <button onclick="addToCart(${p.id})">Add</button>
+      </div>
+    `;
+  });
+}
+
+setTimeout(recommend, 2000);
