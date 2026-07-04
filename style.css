@@ -42,3 +42,14 @@ button{
   border-radius:5px;
   cursor:pointer;
 }
+.nav-icons{
+display:flex;
+gap:20px;
+font-size:20px;
+cursor:pointer;
+align-items:center;
+}
+
+.nav-icons span:hover{
+color:#e91e63;
+}
