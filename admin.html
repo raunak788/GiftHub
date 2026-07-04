@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Dashboard - GiftHub</title>
+  <title>Admin Panel - GiftHub</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2 style="text-align:center;">📊 Admin Dashboard</h2>
+<h2 style="text-align:center;">⚙️ Admin Dashboard</h2>
 
-<div id="orders"></div>
+<div class="admin-container">
+
+  <!-- PRODUCT UPLOAD -->
+  <div class="card">
+    <h3>📦 Add Product</h3>
+    <input id="pname" placeholder="Product Name"><br><br>
+    <input id="pprice" placeholder="Price"><br><br>
+    <input id="pimg" placeholder="Image URL"><br><br>
+    <select id="pcat">
+      <option value="flowers">Flowers</option>
+      <option value="cakes">Cakes</option>
+      <option value="gifts">Gifts</option>
+    </select><br><br>
+
+    <button onclick="addProduct()">Upload Product</button>
+  </div>
+
+  <!-- FILTER ORDERS -->
+  <div class="card">
+    <h3>📋 Orders</h3>
+    <input id="filterDate" placeholder="Filter by date (dd/mm/yyyy)">
+    <button onclick="renderOrders()">Filter</button>
+  </div>
+
+  <!-- ORDERS LIST -->
+  <div id="orders"></div>
+
+</div>
 
 <script src="admin.js"></script>
 </body>
