@@ -198,34 +198,7 @@ margin-top:20px;
 <!-- PRODUCTS -->
 <h2 style="padding:0 20px">Popular Products</h2>
 
-<div class="products">
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1526045478516-99145907023c">
-<h3>Rose Bouquet</h3>
-
-<p>⭐⭐⭐⭐⭐</p>
-
-<p><del>₹899</del> ₹699</p>
-
-<button>Add to Cart</button>
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec">
-<h3>Chocolate Cake</h3>
-<p>₹499</p>
-<button>Add</button>
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2">
-<h3>Gift Box</h3>
-<p>₹899</p>
-<button>Add</button>
-</div>
-
-</div>
+<div class="products" id="products"></div>
 
 <footer>
 © 2026 GiftHub | FNP Style UI
@@ -235,11 +208,30 @@ margin-top:20px;
 let slides = document.querySelectorAll(".slide");
 let i = 0;
 
-setInterval(()=>{
-slides[i].classList.remove("active");
-i = (i+1)%slides.length;
-slides[i].classList.add("active");
-},2500);
+setInterval(() => {
+    slides[i].classList.remove("active");
+    i = (i + 1) % slides.length;
+    slides[i].classList.add("active");
+}, 2500);
+
+// Load Products from Admin Panel
+const products = JSON.parse(localStorage.getItem("products")) || [];
+
+const productContainer = document.getElementById("products");
+
+products.forEach(product => {
+
+    productContainer.innerHTML += `
+        <div class="product">
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>₹${product.price}</p>
+            <button>Add to Cart</button>
+        </div>
+    `;
+
+});
 </script>
 
 </body>
