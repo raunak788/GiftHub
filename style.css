@@ -53,3 +53,11 @@ align-items:center;
 .nav-icons span:hover{
 color:#e91e63;
 }
+.product{
+transition:.4s;
+}
+
+.product:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
