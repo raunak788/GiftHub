@@ -5,78 +5,161 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GiftHub Admin Panel</title>
 
-<style>
-body{
-    font-family:Arial,sans-serif;
-    background:#f4f4f4;
-    padding:30px;
-}
+<link rel="stylesheet" href="css/admin.css">
 
-.container{
-    max-width:700px;
-    margin:auto;
-    background:#fff;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-input,textarea{
-    width:100%;
-    padding:10px;
-    margin:10px 0;
-}
-
-button{
-    background:#e91e63;
-    color:#fff;
-    border:none;
-    padding:12px 20px;
-    cursor:pointer;
-    border-radius:5px;
-}
-
-table{
-    width:100%;
-    margin-top:20px;
-    border-collapse:collapse;
-}
-
-th,td{
-    border:1px solid #ddd;
-    padding:10px;
-    text-align:center;
-}
-</style>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 <body>
 
-<div class="container">
+<!-- Sidebar -->
+<div class="sidebar">
 
-<h2>GiftHub Admin Panel</h2>
+    <div class="logo">
+        <h2>🎁 GiftHub</h2>
+        <p>Admin Panel</p>
+    </div>
 
-<input id="name" placeholder="Product Name">
+    <ul>
+        <li class="active">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+        </li>
 
-<input id="price" placeholder="Price">
+        <li>
+            <i class="fa-solid fa-box"></i>
+            Products
+        </li>
 
-<input id="image" placeholder="Image URL">
+        <li>
+            <i class="fa-solid fa-cart-shopping"></i>
+            Orders
+        </li>
 
-<button onclick="addProduct()">Add Product</button>
+        <li>
+            <i class="fa-solid fa-users"></i>
+            Customers
+        </li>
 
-<table>
+        <li>
+            <i class="fa-solid fa-gear"></i>
+            Settings
+        </li>
 
-<thead>
-<tr>
-<th>Name</th>
-<th>Price</th>
-<th>Delete</th>
-</tr>
-</thead>
+    </ul>
 
-<tbody id="list"></tbody>
+</div>
 
-</table>
+<!-- Main -->
+
+<div class="main">
+
+    <!-- Top Bar -->
+
+    <div class="topbar">
+
+        <h1>Dashboard</h1>
+
+        <button id="logoutBtn">
+            Logout
+        </button>
+
+    </div>
+
+    <!-- Cards -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Products</h3>
+            <h2 id="productCount">0</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Orders</h3>
+            <h2>0</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Users</h3>
+            <h2>0</h2>
+        </div>
+
+        <div class="card">
+            <h3>Revenue</h3>
+            <h2>₹0</h2>
+        </div>
+
+    </div>
+
+    <!-- Add Product -->
+
+    <div class="product-box">
+
+        <h2>Add New Product</h2>
+
+        <input
+        type="text"
+        id="name"
+        placeholder="Product Name">
+
+        <input
+        type="number"
+        id="price"
+        placeholder="Price">
+
+        <input
+        type="text"
+        id="image"
+        placeholder="Image URL">
+
+        <select id="category">
+            <option>Flowers</option>
+            <option>Cakes</option>
+            <option>Gifts</option>
+            <option>Chocolates</option>
+        </select>
+
+        <button onclick="addProduct()">
+            Add Product
+        </button>
+
+    </div>
+
+    <!-- Product Table -->
+
+    <div class="table-box">
+
+        <h2>Product List</h2>
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>Image</th>
+
+                <th>Name</th>
+
+                <th>Price</th>
+
+                <th>Category</th>
+
+                <th>Delete</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody id="productTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
 
 </div>
 
